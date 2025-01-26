@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan-Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-image: linear-gradient(#EE4540, #C72C41, #801336, #510A32, #2D142C);
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: rgb(20, 15, 58);
+            opacity: 125%;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: 50px;
+            border-radius: 500px;
+        }
+
+        .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        flex-direction: column; /* Stack the image and text vertically */
+        padding: 50px;
+        background-color: rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+    }
+
+    .hero .img-container {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        margin-bottom: 20px; /* Add space between the image and text */
+        animation: slide-down 2s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero .img-container::before {
+        content: "";
+        position: absolute;
+        width: 289px;
+        height: 289px;
+        background: url('bam.png') no-repeat center center;
+        animation: slide-down 2s ease-in-out;
+        background-size: cover;
+        z-index: 1;
+    }
+
+    .hero img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        position: relative;
+        z-index: 2;
+    
+    }
+
+    .hero-text {
+        text-align: center; /* Center-align text */
+        line-height: 1.5;
+        flex: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        animation: slide-right 2s ease-in-out;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        animation: slide-left 2s ease-in-out;
+    }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: slide-right 2s ease-in-out;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            animation: slide-left 2s ease-in-out;
+        }
+
+        @keyframes slide-right {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-left {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-down {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .btn-primary {
+            background-color: #d00000;
+            border-color: #d00000;
+            font-weight: bold;
+            animation: slide-down 2s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #b00000;
+            border-color: #b00000;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .social-icons {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff6cdc;
+            transform: scale(1.2);
+        }
+
+        .about-section, .projects-section {
+            padding: 50px 0;
+        }
+
+        .about-section h2, .projects-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 20px;
+            border-radius: 10px;
+        }
+
+        .progress-bar .progress-bar-striped {
+            animation: progress-bar-stripes 1.5s linear infinite;
+        }
+
+        @keyframes progress-bar-stripes {
+            0% { background-position: 1rem 0; }
+            100% { background-position: 0 0; }
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="bg.webp" alt="Logo" class="me-2"> Bryan Villanueva
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="img-container">
+            <img src="imahe1.png" alt="Welcome Image">
+        </div>
+        <div class="hero-text">
+            <h1>Bryan A. Villanueva</h1>
+            <p>Bulacan Agricultural State College</p>
+            <p>Bachelor of Science in Information Technology</p>
+            <a href="#projects" class="btn btn-primary btn-lg">View My CV</a>
+        </div>
+    </div>
+
+     <!-- About Section -->
+     <div id="about" class="about-section text-center">
+        <h2>About Me</h2>
+        <p>I am a passionate and skilled web developer with experience in creating dynamic and responsive websites.</p>
+        <h4>Experience</h4>
+        <p>Over 3 years of experience in web development, specializing in front-end and back-end technologies.</p>
+        <h5>Skills</h5>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>HTML</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>CSS</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>JavaScript</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p>Bootstrap</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>PHP</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="projects-section">
+        <h2 class="text-center">My Projects</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="calims.tech.png" alt="Project 1" class="project-image">
+                </div>
+                <div class="col-md-6">
+                    <img src="bims.png" alt="Project 2" class="project-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+        <a href="https://www.facebook.com/share/1BdD4bYxf8/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:bryanalegrevillanueva.com"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

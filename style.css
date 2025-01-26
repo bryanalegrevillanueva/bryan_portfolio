@@ -1,0 +1,20 @@
+css
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #343a40, #495057);
+}
+
+
+
+section {
+    padding: 60px 0;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
