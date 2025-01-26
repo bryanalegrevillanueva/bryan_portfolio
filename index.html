@@ -30,65 +30,51 @@
         }
 
         .hero {
-        height: 100vh;
-        display: flex;
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-        flex-direction: column; /* Stack the image and text vertically */
-        padding: 50px;
-        background-color: rgba(0, 0, 0, 0.6);
-        overflow: hidden;
-    }
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            flex-direction: column; /* Stack the image and text vertically */
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
 
-    .hero .img-container {
-        position: relative;
-        width: 220px;
-        height: 220px;
-        margin-bottom: 20px; /* Add space between the image and text */
-        animation: slide-down 2s ease-in-out;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .hero .img-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin-bottom: 20px; /* Add space between the image and text */
+            animation: slide-down 2s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .hero .img-container::before {
-        content: "";
-        position: absolute;
-        width: 289px;
-        height: 289px;
-        background: url('bam.png') no-repeat center center;
-        animation: slide-down 2s ease-in-out;
-        background-size: cover;
-        z-index: 1;
-    }
+        .hero .img-container::before {
+            content: "";
+            position: absolute;
+            width: 289px;
+            height: 289px;
+            background: url('bam.png') no-repeat center center;
+            animation: slide-down 2s ease-in-out;
+            background-size: cover;
+            z-index: 1;
+        }
 
-    .hero img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        position: relative;
-        z-index: 2;
-    
-    }
+        .hero img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
 
-    .hero-text {
-        text-align: center; /* Center-align text */
-        line-height: 1.5;
-        flex: 1;
-    }
-
-    .hero-text h1 {
-        font-size: 3rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-        animation: slide-right 2s ease-in-out;
-    }
-
-    .hero-text p {
-        font-size: 1rem;
-        margin-bottom: 10px;
-        animation: slide-left 2s ease-in-out;
-    }
+        .hero-text {
+            text-align: center; /* Center-align text */
+            line-height: 1.5;
+            flex: 1;
+        }
 
         .hero-text h1 {
             font-size: 3rem;
@@ -185,26 +171,43 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-
-        .progress-bar {
-            height: 20px;
-            border-radius: 10px;
+       
+        .circular-progress {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            animation: slide-down 2s ease-in-out;
         }
 
-        .progress-bar .progress-bar-striped {
-            animation: progress-bar-stripes 1.5s linear infinite;
+        .circular-progress svg {
+            transform: rotate(-90deg);
         }
 
-        @keyframes progress-bar-stripes {
-            0% { background-position: 1rem 0; }
-            100% { background-position: 0 0; }
+        .circular-progress circle {
+            fill: none;
+            stroke-width: 10;
         }
 
-        .project-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .circular-progress .bg-circle {
+            stroke: #f0f0f0;
+        }
+
+        .circular-progress .progress-circle {
+            stroke: #d00000;
+            stroke-dasharray: 314;
+            stroke-dashoffset: 314;
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+
+        .circular-progress .percentage {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
         }
     </style>
     <!-- Google Fonts -->
@@ -258,47 +261,91 @@
         <h5>Skills</h5>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <div class="circular-progress">
+                        <svg width="100" height="100">
+                            <circle class="bg-circle" cx="50" cy="50" r="45"></circle>
+                            <circle class="progress-circle" cx="50" cy="50" r="45" style="stroke-dashoffset: 62;"></circle>
+                        </svg>
+                        <div class="percentage">80%</div>
+                    </div>
+                    <img src="html-5.png" alt="HTML Logo" class="img-fluid mb-2" style="width: 50px; height: 50px; object-fit: contain;">
                     <p>HTML</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="circular-progress">
+                        <svg width="100" height="100">
+                            <circle class="bg-circle" cx="50" cy="50" r="45"></circle>
+                            <circle class="progress-circle" cx="50" cy="50" r="45" style="stroke-dashoffset: 62;"></circle>
+                        </svg>
+                        <div class="percentage">80%</div>
                     </div>
+                    <img src="css-3.png" alt="HTML Logo" class="img-fluid mb-2" style="width: 50px; height: 50px; object-fit: contain;">
                     <p>CSS</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <p>JavaScript</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
                 </div>
-                <div class="col-md-6">
-                    <p>Bootstrap</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+
+            
+                <div class="col-md-4">
+                    <div class="circular-progress">
+                        <svg width="100" height="100">
+                            <circle class="bg-circle" cx="50" cy="50" r="45"></circle>
+                            <circle class="progress-circle" cx="50" cy="50" r="45" style="stroke-dashoffset: 97;"></circle>
+                        </svg>
+                        <div class="percentage">75%</div>
                     </div>
+                    <img src="js.png" alt="HTML Logo" class="img-fluid mb-2" style="width: 50px; height: 50px; object-fit: contain;">
+                    <p>JAVASCRIPT</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="circular-progress">
+                        <svg width="100" height="100">
+                            <circle class="bg-circle" cx="50" cy="50" r="45"></circle>
+                            <circle class="progress-circle" cx="50" cy="50" r="45" style="stroke-dashoffset: 62;"></circle>
+                        </svg>
+                        <div class="percentage">80%</div>
+                    </div>
+                    <img src="html-5.png" alt="HTML Logo" class="img-fluid mb-2" style="width: 50px; height: 50px; object-fit: contain;">
+                    <p>BOOTSTRAP</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="circular-progress">
+                        <svg width="100" height="100">
+                            <circle class="bg-circle" cx="50" cy="50" r="45"></circle>
+                            <circle class="progress-circle" cx="50" cy="50" r="45" style="stroke-dashoffset: 97;"></circle>
+                        </svg>
+                        <div class="percentage">75%</div>
+                    </div>
+                    <img src="php.png" alt="HTML Logo" class="img-fluid mb-2" style="width: 50px; height: 50px; object-fit: contain;">
                     <p>PHP</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
                 </div>
+                
             </div>
         </div>
     </div>
 
     <!-- Projects Section -->
     <div id="projects" class="projects-section">
-        <h2 class="text-center">My Projects</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="calims.tech.png" alt="Project 1" class="project-image">
-                </div>
-                <div class="col-md-6">
-                    <img src="bims.png" alt="Project 2" class="project-image">
-                </div>
-            </div>
+<div class="row">
+    <div class="col-md-5">
+        <img src="calims.tech.png" class="card-img-top" alt="Project 1">
+        <div class="card-body">
+          <h5 class="card-title">Crops and livestock Inventory Management System</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          
         </div>
+    </div>
+    <div class="col-md-5">
+        <img src="bims.png" class="card-img-top" alt="Project 1">
+        <div class="card-body">
+          <h5 class="card-title">Crops and livestock Inventory Management System</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+        </div>
+    </div>
+</div>
     </div>
 
     <!-- Social Media Icons -->
